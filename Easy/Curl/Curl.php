@@ -24,7 +24,7 @@ class Curl
 		{
 			$cookie[] = $c."=".$v;
 		}
-		curl_setopt($ch, , implode("; ", ))
+		curl_setopt($ch, CURLOPT_COOKIE , implode("; ", $cookie));
 		$r = curl_exec($ch);
 		curl_close($ch);
 		return $r;
