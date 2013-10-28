@@ -6,21 +6,32 @@ class Curl
 	{
 		$this->ckfile = tempnam ("/tmp", "CURLCOOKIE");
 	}
+	private $cookie = array();
+	public function addCookie($name, $value)
+	{
+		$cookie[$name]=$value;
+	}
 	public function get($url)
 	{
 		$ch = curl_init ($url);
 
-		curl_setopt ($ch, CURLOPT_COOKIEJAR, $this->ckfile);
-		curl_setopt ($ch, CURLOPT_COOKIEFILE, $this->ckfile);
-		curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_HEADER, 1);
+		#curl_setopt ($ch, CURLOPT_COOKIEJAR, $this->ckfile);
+		#curl_setopt ($ch, CURLOPT_COOKIEFILE, $this->ckfile);
+		#curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
+		#curl_setopt($ch, CURLOPT_HEADER, 1);
+		$cookie = array();
+		foreach($this->cookie as $c => $v)
+		{
+			$cookie[] = $c."=".$v;
+		}
+		curl_setopt($ch, , implode("; ", ))
 		$r = curl_exec($ch);
 		curl_close($ch);
 		return $r;
 	}
-	public function setCookie($name, $value)
+	/*public function setCookie($name, $value)
 	{
 
-	}
+	}*/
 }
 ?>
