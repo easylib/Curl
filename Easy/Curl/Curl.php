@@ -4,7 +4,7 @@ class Curl
 {
 	public function __construct()
 	{
-		$$this->ckfile = tempnam ("/tmp", "CURLCOOKIE");
+		$this->ckfile = tempnam ("/tmp", "CURLCOOKIE");
 	}
 	public function get($url)
 	{
