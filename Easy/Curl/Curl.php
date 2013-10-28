@@ -13,7 +13,7 @@ class Curl
 		curl_setopt ($ch, CURLOPT_COOKIEJAR, $this->ckfile);
 		curl_setopt ($ch, CURLOPT_COOKIEFILE, $this->ckfile);
 		curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
-
+		curl_setopt($ch, CURLOPT_HEADER, 1);
 		$r = curl_exec($ch);
 		curl_close($ch);
 		return $r;
