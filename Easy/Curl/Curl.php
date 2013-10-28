@@ -17,7 +17,7 @@ class Curl
 
 		#curl_setopt ($ch, CURLOPT_COOKIEJAR, $this->ckfile);
 		#curl_setopt ($ch, CURLOPT_COOKIEFILE, $this->ckfile);
-		#curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
 		#curl_setopt($ch, CURLOPT_HEADER, 1);
 		$cookie = array();
 		foreach($this->cookie as $c => $v)
